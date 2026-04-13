@@ -1216,10 +1216,7 @@
 
 @media (max-width: 760px) {
   .wa-float {
-    bottom: 100px;
-    right: 16px;
-    width: 52px;
-    height: 52px;
+    display: none;
   }
 }
 
