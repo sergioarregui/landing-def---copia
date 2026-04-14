@@ -647,6 +647,18 @@
       }
     });
 
+    window.addEventListener('scroll', function () {
+      const mobileCta = document.querySelector('.mobile-cta');
+      if (mobileCta) {
+        // Mostrar cuando el usuario haya bajado 300px (al salir del inicio del hero)
+        if (window.scrollY > 300) {
+          mobileCta.classList.add('is-visible');
+        } else {
+          mobileCta.classList.remove('is-visible');
+        }
+      }
+    });
+
     function acceptCookies() {
       localStorage.setItem('cookiesConsent', 'accepted');
       document.getElementById('cookie-banner').style.display = 'none';
