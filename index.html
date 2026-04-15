@@ -2,6 +2,21 @@
 <html lang="es">
 
 <head>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    // Si el usuario ya aceptó antes, recuperamos su decisión
+    const consent = localStorage.getItem('cookiesConsent');
+
+    gtag('consent', 'default', {
+      'ad_storage': consent === 'accepted' ? 'granted' : 'denied',
+      'ad_user_data': consent === 'accepted' ? 'granted' : 'denied',
+      'ad_personalization': consent === 'accepted' ? 'granted' : 'denied',
+      'analytics_storage': consent === 'accepted' ? 'granted' : 'denied',
+      'wait_for_update': 500
+    });
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/favicon.png">
@@ -668,12 +683,27 @@
     function acceptCookies() {
       localStorage.setItem('cookiesConsent', 'accepted');
       document.getElementById('cookie-banner').style.display = 'none';
-      // Aquí activarías tus tags de Google Ads
+
+      // ESTO ES LO QUE FALTA: Avisar a Google del cambio
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
     }
 
     function denyCookies() {
       localStorage.setItem('cookiesConsent', 'denied');
       document.getElementById('cookie-banner').style.display = 'none';
+
+      // Opcional: Asegurar que queda denegado
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
     }
   </script>
 
