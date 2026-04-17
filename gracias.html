@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gracias por tu reserva en La Sastrería del Tiempo.">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>¡Gracias por tu reserva! | La Sastrería del Tiempo</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 50px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            max-width: 750px;
+            width: 90%;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .icon-success {
+            width: 80px;
+            height: 80px;
+            background-color: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .icon-success svg {
+            width: 40px;
+            height: 40px;
+            fill: none;
+            stroke: #4caf50;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 26px;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background-color: #f2f7fb;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid #d1e2f1;
+            text-align: left;
+        }
+
+        .info-box h2 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .info-box h2:not(:first-child) {
+            margin-top: 30px;
+        }
+
+        .info-box p {
+            margin: 0 0 15px 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .info-box ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: #444;
+            font-size: 15px;
+        }
+        
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #0046a0;
+            color: white;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.1s;
+            margin: 15px 0 25px 0;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-primary:hover {
+            background-color: #003377;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-box {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .contact-box p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .contact-box a {
+            color: #0046a0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            color: #777;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            color: #0046a0;
+            text-decoration: underline;
+        }
+
+        .diagnostico-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #d1e2f1;
+            margin: 25px 0;
+            text-align: left;
+        }
+        
+        .diagnostico-form h3 {
+            color: #0046a0;
+            font-size: 16px;
+            border-bottom: 2px solid #e2eff8;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .diagnostico-form h3:first-child {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group > label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #0046a0;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 70, 160, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-label, .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            font-size: 14.5px;
+            color: #444;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .radio-label input, .checkbox-label input {
+            margin-top: 3px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-box {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f2f7fb;
+            border-radius: 6px;
+            border: 1px solid #d1e2f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="icon-success">
+            <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        
+        <h1>¡Pago confirmado! Gracias por tu confianza</h1>
+        <p>Hemos recibido correctamente el pago de 30,25 € para tu Sesión Express de Coaching.</p>
+        
+        <p style="font-weight: 600; color: #2c3e50;">Para que podamos avanzar y aprovechar al máximo nuestros 30 minutos, necesito que completes el siguiente paso:</p>
+
+        <div class="info-box">
+            <h2>1. Rellena el formulario de diagnóstico</h2>
+            <p>Es imprescindible que dediques un par de minutos a completar este formulario. Tus respuestas me permitirán entender tu situación actual antes de nuestro contacto.</p>
+            
+            <form action="enviar_diagnostico.php" method="POST" class="diagnostico-form">
+                <h3>1. TUS DATOS</h3>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-control" required>
+                </div>
+
+                <h3>2. TU FAMILIA</h3>
+                <div class="form-group">
+                    <p class="form-label">¿Quién participa en la sesión?</p>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="participantes" value="Solo yo" required> Solo yo</label>
+                        <label class="radio-label"><input type="radio" name="participantes" value="Con pareja"> Con pareja</label>
+                        <label class="radio-label"><input type="radio" name="participantes" value="Con mi hijo/a"> Con mi hijo/a</label>
+                        <label class="radio-label"><input type="radio" name="participantes" value="Con pareja e hijo/a"> Con pareja e hijo/a</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edades_hijos">Edades de los hijos:</label>
+                    <input type="text" id="edades_hijos" name="edades_hijos" class="form-control" placeholder="Ej. 7, 10 y 14 (opcional)">
+                </div>
+
+                <h3>3. EL CONFLICTO PRINCIPAL</h3>
+                <div class="form-group">
+                    <label for="conflicto">Describe brevemente el conflicto que traes a la sesión:</label>
+                    <textarea id="conflicto" name="conflicto" rows="3" class="form-control" required></textarea>
+                </div>
+
+                <h3>4. TUS OBJETIVOS</h3>
+                <div class="form-group">
+                    <label for="objetivos">¿Qué quieres lograr o cambiar en estos 30 minutos?</label>
+                    <textarea id="objetivos" name="objetivos" rows="3" class="form-control" required></textarea>
+                </div>
+
+                <h3>5. LO QUE DEBERÍA SABER</h3>
+                <div class="form-group">
+                    <label for="algo_mas">¿Hay algo más importante sobre tu situación? (opcional)</label>
+                    <textarea id="algo_mas" name="algo_mas" rows="2" class="form-control"></textarea>
+                </div>
+
+                <div class="checkbox-box form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="privacidad" required>
+                        <span>Acepto la política de confidencialidad. Mis datos serán protegidos según RGPD y utilizados únicamente para mi sesión.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary" style="margin-top: 15px; border:none; cursor:pointer; font-size: 16px;">Enviar Formulario de Diagnóstico</button>
+            </form>
+            <h2>2. ¿Qué pasará después?</h2>
+            <p>Una vez enviado el formulario, este es el proceso:</p>
+            <ul>
+                <li><strong>Revisión:</strong> Analizaré tu información personalmente.</li>
+                <li><strong>Confirmación:</strong> En un plazo máximo de 24 horas, recibirás un correo electrónico de mi parte.</li>
+                <li><strong>Siguientes pasos:</strong> En ese email te indicaré cómo procederemos para realizar la sesión.</li>
+            </ul>
+        </div>
+
+        <div class="contact-box">
+            <p><strong>¿Tienes alguna duda inmediata?</strong></p>
+            <p>Si el formulario te da problemas o necesitas comentar algo urgente, escríbeme a: <a href="mailto:info@lasastreriadeltiempo.com">info@lasastreriadeltiempo.com</a> o WhatsApp: <a href="https://wa.me/34697706954" target="_blank">+34 697 706 954</a></p>
+        </div>
+
+        <a href="index.html" class="btn-secondary">Volver a la portada</a>
+    </div>
+
+</body>
+
+</html>
